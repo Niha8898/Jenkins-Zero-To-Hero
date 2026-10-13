@@ -20,6 +20,11 @@ pipeline {
       }
     }
     stage('Static Code Analysis') {
+      agent {
+        docker {
+            image 'maven:3.9-eclipse-temurin-17'
+        }
+      }
       environment {
         SONAR_URL = "http://16.16.64.150:9000"
       }
